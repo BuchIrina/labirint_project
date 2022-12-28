@@ -1,32 +1,30 @@
 package tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Condition.exactText;
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-
+@Feature("Authorization")
+@Owner("buchnevaia")
 public class AuthorizationTest extends TestBase {
+    private static final String ERROR_MASSAGE = "Введенного кода не существует";
 
-
-
-    // email - nayer15345@lubde.com
-    //code - A655-4264-B301
     @Test
-    void successfulAuthorizationTest() {
-        $(".b-header-b-personal-e-list-item_cabinet").click();
-        $("[autocomplete='code tel email phone phones telephone mail']").setValue("A655-4264-B301");
-        $("#g-recap-0-btn").click();
-        $("#auth-success-login").shouldHave(text("Здравствуйте"));
+    @DisplayName("Authorization is not possible with invalid authorization code")
+    void unsuccessfulAuthorizationTest() {
+        mainPage.openLoginDialog()
+                .enterAuthorizationCode("A655-4264-B3012")
+                .checkErrorAuthorizationResult(ERROR_MASSAGE);
     }
 
     // email - nayer15345@lubde.com
     //code - A655-4264-B301
     @Test
-    void unsuccessfulAuthorizationTest() {
-        $(".b-header-b-personal-e-list-item_cabinet").click();
-        $("[autocomplete='code tel email phone phones telephone mail']").setValue("A655-4264-B3012");
-        $("#g-recap-0-btn").click();
-        $(".full-input__msg-small.js-msg-small").shouldHave(exactText("Введенного кода не существует"));
+    @DisplayName("Successful authorization with valid authorization code")
+    void successfulAuthorizationTest() {
+        mainPage.openLoginDialog()
+                .enterAuthorizationCode("A655-4264-B301")
+                .checkSuccessAuthorizationResult("Здравствуйте");
     }
 }

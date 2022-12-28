@@ -1,38 +1,34 @@
 package tests;
 
+import io.qameta.allure.Feature;
+import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
 import tests.domain.HeaderMainMenu;
-import tests.domain.HeaderSecondMenu;
 
-import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.WebDriverConditions.url;
-
+@Feature("Header menu")
+@Owner("buchnevaia")
 public class HeaderTests extends TestBase {
 
+    @DisplayName("Main page open by click on logo")
     @Test
     void clickOnHeaderLogoReturnOnMainPageTest() {
-        $(".b-header-b-logo-e-logo").click();
-        webdriver().shouldHave(url("https://www.labirint.ru" + "/"));
+        mainPage.clickOnLabirintLogo()
+                .checkPageIsOpening("/");
     }
+
 
     @EnumSource(HeaderMainMenu.class)
     @ParameterizedTest
+    @DisplayName("Each header menu item opens on new page")
     void checkListOfHeaderMenuItemsTest(HeaderMainMenu headerMainMenu) {
-        $$("li.b-header-b-menu-e-list-item").find(text(headerMainMenu.name)).click();
-        webdriver().shouldHave(url("https://www.labirint.ru" + headerMainMenu.link));
+        mainPage.openHeaderMenu(headerMainMenu)
+                .checkPageIsOpening(headerMainMenu.link);
     }
-
-//    @EnumSource(HeaderSecondMenu.class)
-//    @ParameterizedTest
-//    void checkListOfSecondHeaderMenuItemsTest(HeaderSecondMenu headerSecondMenu) {
-//        $("[data-toggle='header-more']").hover();
-//        $$(".b-menu-second-container li").find(text(headerSecondMenu.name)).click();
-//        webdriver().shouldHave(url("https://www.labirint.ru" + headerSecondMenu.link));
-//    }
 
     @CsvSource(value = {
             "CD/DVD, /multimedia/",
@@ -41,9 +37,9 @@ public class HeaderTests extends TestBase {
             "Товары для дома, /household/"
     })
     @ParameterizedTest
+    @DisplayName("Each item of More menu opens on new page")
     void checkListOfSecondHeaderMenuItemsTest1(String name, String url) {
-        $("[data-toggle='header-more']").hover();
-        $$(".b-menu-second-container li").find(text(name)).click();
-        webdriver().shouldHave(url("https://www.labirint.ru" + url));
+        mainPage.openSecondHeaderMenu(name)
+                .checkPageIsOpening(url);
     }
 }
