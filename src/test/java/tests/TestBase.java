@@ -3,12 +3,13 @@ package tests;
 import com.codeborne.selenide.logevents.SelenideLogger;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
+import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import tests.pages.MainPage;
 import tests.pages.SearchPage;
 
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class TestBase {
     MainPage mainPage = new MainPage();
@@ -23,5 +24,11 @@ public class TestBase {
     @Step("Open the browser")
     public void openMainPage() {
         open("https://www.labirint.ru");
+    }
+
+    @AfterEach
+    @Step("Close webDriver")
+    public void afterTests() {
+        closeWebDriver();
     }
 }
