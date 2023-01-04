@@ -21,7 +21,6 @@ public class HeaderTests extends TestBase {
                 .checkPageIsOpening("/");
     }
 
-
     @EnumSource(HeaderMainMenu.class)
     @ParameterizedTest
     @DisplayName("Each header menu item opens on new page")

@@ -5,8 +5,6 @@ import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selenide.closeWebDriver;
-
 @Feature("Authorization")
 @Owner("buchnevaia")
 public class AuthorizationTest extends TestBase {

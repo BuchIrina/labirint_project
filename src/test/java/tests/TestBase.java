@@ -1,6 +1,7 @@
 package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
+import drivers.web.BrowserWebDriver;
 import helpers.Attachments;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
@@ -20,6 +21,7 @@ public class TestBase {
     @BeforeAll
     static void setUp() {
         SelenideLogger.addListener("allure", new AllureSelenide());
+        BrowserWebDriver.configuration();
     }
 
     @BeforeEach
@@ -29,11 +31,11 @@ public class TestBase {
     }
 
     @AfterEach
-    @Step("Close webDriver")
+    @Step("Add attachments and close webDriver")
     public void afterTests() {
         Attachments.screenshotAs("Last screenshot");
-        Attachments.addVideo();
         Attachments.pageSource();
+        Attachments.addVideo();
         closeWebDriver();
     }
 }
