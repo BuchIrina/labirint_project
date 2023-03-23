@@ -14,6 +14,7 @@ public class SearchTests extends TestBase {
     @Test
     @DisplayName("Response message to incorrect search query")
     void searchWithIncorrectQueryTest() {
+        mainPage.openPage();
         mainPage.fillSearchField("The Story of Verona");
         searchPage.searchErrorResponse("Мы ничего не нашли по вашему запросу! Что делать?");
     }
@@ -27,6 +28,7 @@ public class SearchTests extends TestBase {
     @ParameterizedTest
     @DisplayName("Response message to valid search query {0}")
     void searchWithDifferentQueriesTest(String request, String response) {
+        mainPage.openPage();
         mainPage.fillSearchField(request);
         searchPage.checkSearchResult(response);
     }

@@ -13,6 +13,7 @@ public class AuthorizationTest extends TestBase {
     @Test
     @DisplayName("Authorization is not possible with invalid authorization code")
     void unsuccessfulAuthorizationTest() {
+        mainPage.openPage();
         mainPage.openLoginDialog()
                 .enterAuthorizationCode("A655-4264-B3012")
                 .checkErrorAuthorizationResult(ERROR_MASSAGE);
@@ -23,6 +24,7 @@ public class AuthorizationTest extends TestBase {
     @Test
     @DisplayName("Successful authorization with valid authorization code")
     void successfulAuthorizationTest() {
+        mainPage.openPage();
         mainPage.openLoginDialog()
                 .enterAuthorizationCode("A655-4264-B301")
                 .checkSuccessAuthorizationResult("Здравствуйте");

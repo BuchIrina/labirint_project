@@ -1,13 +1,12 @@
 package tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.web.BrowserWebDriver;
+import drivers.web.WebDriverProvider;
 import helpers.Attachments;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import tests.pages.MainPage;
 import tests.pages.SearchPage;
 
@@ -20,15 +19,15 @@ public class TestBase {
 
     @BeforeAll
     static void setUp() {
+        WebDriverProvider provider = new WebDriverProvider();
         SelenideLogger.addListener("allure", new AllureSelenide());
-        BrowserWebDriver.configuration();
     }
 
-    @BeforeEach
-    @Step("Open the browser")
-    public void openMainPage() {
-        open("https://www.labirint.ru");
-    }
+//    @BeforeEach
+//    @Step("Open the browser")
+//    public void openMainPage() {
+//        open("https://www.labirint.ru");
+//    }
 
     @AfterEach
     @Step("Add attachments and close webDriver")

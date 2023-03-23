@@ -16,6 +16,7 @@ public class HeaderTests extends TestBase {
     @DisplayName("Main page open by click on logo")
     @Test
     void clickOnHeaderLogoReturnOnMainPageTest() {
+        mainPage.openPage();
         mainPage.clickOnLabirintLogo()
                 .checkPageIsOpening("/");
     }
@@ -24,6 +25,7 @@ public class HeaderTests extends TestBase {
     @ParameterizedTest
     @DisplayName("Each header menu item opens on new page")
     void checkListOfHeaderMenuItemsTest(HeaderMainMenu headerMainMenu) {
+        mainPage.openPage();
         mainPage.openHeaderMenu(headerMainMenu)
                 .checkPageIsOpening(headerMainMenu.link);
     }
@@ -37,6 +39,7 @@ public class HeaderTests extends TestBase {
     @ParameterizedTest
     @DisplayName("Each item of More menu opens on new page")
     void checkListOfSecondHeaderMenuItemsTest1(String name, String url) {
+        mainPage.openPage();
         mainPage.openSecondHeaderMenu(name)
                 .checkPageIsOpening(url);
     }

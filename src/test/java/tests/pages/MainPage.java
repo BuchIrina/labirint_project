@@ -32,6 +32,13 @@ public class MainPage {
         return this;
     }
 
+    @Step("Open main page")
+    public MainPage openPage() {
+        open("/");
+        cookiesButton.click();
+        return this;
+    }
+
     @Step("Click on Labirint logo")
     public MainPage clickOnLabirintLogo() {
         labirintLogo.click();

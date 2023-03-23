@@ -7,7 +7,8 @@ group 'com.buchneva'
 version '1.0-SNAPSHOT'
 
 def allureVersion = "2.21.0",
-        slf4jVersion = "2.0.6"
+    slf4jVersion = "2.0.6",
+    ownerVersion = "1.0.12"
 
 allure {
     report {
@@ -38,9 +39,10 @@ compileTestJava {
 dependencies {
     testImplementation(
             "org.junit.jupiter:junit-jupiter:5.9.2",
-            "com.codeborne:selenide:6.12.3",
+            "com.codeborne:selenide:6.12.4",
             "io.qameta.allure:allure-selenide:$allureVersion",
-            "org.slf4j:slf4j-simple:$slf4jVersion"
+            "org.slf4j:slf4j-simple:$slf4jVersion",
+            "org.aeonbits.owner:owner:$ownerVersion"
     )
 }
 
