@@ -1,8 +1,8 @@
 package buchneva.web.tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import buchneva.web.drivers.AuthConfig;
-import buchneva.web.WebDriverProvider;
+import buchneva.web.config.AuthConfig;
+import buchneva.web.config.WebDriverProvider;
 import buchneva.web.helpers.Attachments;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;

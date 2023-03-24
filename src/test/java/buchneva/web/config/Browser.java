@@ -1,4 +1,4 @@
-package buchneva.web;
+package buchneva.web.config;
 
 public enum Browser {
     CHROME,

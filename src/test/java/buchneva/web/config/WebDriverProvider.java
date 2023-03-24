@@ -1,4 +1,4 @@
-package buchneva.web;
+package buchneva.web.config;
 
 import com.codeborne.selenide.Configuration;
 import org.aeonbits.owner.ConfigFactory;
