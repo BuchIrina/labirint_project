@@ -1,4 +1,4 @@
-package tests;
+package buchneva.web.tests;
 
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;

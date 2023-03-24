@@ -1,4 +1,4 @@
-package drivers.web;
+package buchneva.web.drivers;
 
 import org.aeonbits.owner.Config;
 

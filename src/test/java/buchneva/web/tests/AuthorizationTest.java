@@ -1,6 +1,6 @@
-package tests;
+package buchneva.web.tests;
 
-import drivers.web.AuthConfig;
+import buchneva.web.drivers.AuthConfig;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.aeonbits.owner.ConfigFactory;

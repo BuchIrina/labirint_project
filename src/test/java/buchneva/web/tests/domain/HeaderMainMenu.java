@@ -1,4 +1,4 @@
-package tests.domain;
+package buchneva.web.tests.domain;
 
 public enum HeaderMainMenu {
     BOOKS("Книги", "/books/"),

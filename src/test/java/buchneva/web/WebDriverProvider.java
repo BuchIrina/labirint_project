@@ -1,4 +1,4 @@
-package drivers.web;
+package buchneva.web;
 
 import com.codeborne.selenide.Configuration;
 import org.aeonbits.owner.ConfigFactory;

@@ -1,4 +1,4 @@
-package tests.pages;
+package buchneva.web.tests.pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;

@@ -1,5 +1,6 @@
-package tests;
+package buchneva.web.tests;
 
+import buchneva.web.tests.domain.HeaderMainMenu;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
 import org.junit.jupiter.api.DisplayName;
@@ -7,7 +8,6 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.EnumSource;
-import tests.domain.HeaderMainMenu;
 
 @Feature("Header menu")
 @Owner("buchnevaia")

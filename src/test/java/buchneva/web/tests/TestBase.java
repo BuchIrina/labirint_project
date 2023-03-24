@@ -1,16 +1,16 @@
-package tests;
+package buchneva.web.tests;
 
 import com.codeborne.selenide.logevents.SelenideLogger;
-import drivers.web.AuthConfig;
-import drivers.web.WebDriverProvider;
-import helpers.Attachments;
+import buchneva.web.drivers.AuthConfig;
+import buchneva.web.WebDriverProvider;
+import buchneva.web.helpers.Attachments;
 import io.qameta.allure.Step;
 import io.qameta.allure.selenide.AllureSelenide;
 import org.aeonbits.owner.ConfigFactory;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
-import tests.pages.MainPage;
-import tests.pages.SearchPage;
+import buchneva.web.tests.pages.MainPage;
+import buchneva.web.tests.pages.SearchPage;
 
 import static com.codeborne.selenide.Selenide.closeWebDriver;
 

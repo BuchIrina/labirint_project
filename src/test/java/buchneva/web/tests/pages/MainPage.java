@@ -1,9 +1,9 @@
-package tests.pages;
+package buchneva.web.tests.pages;
 
+import buchneva.web.tests.domain.HeaderMainMenu;
 import com.codeborne.selenide.ElementsCollection;
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
-import tests.domain.HeaderMainMenu;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
