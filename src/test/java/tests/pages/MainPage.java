@@ -7,6 +7,7 @@ import tests.domain.HeaderMainMenu;
 
 import static com.codeborne.selenide.Condition.exactText;
 import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.WebDriverConditions.url;
 
@@ -17,6 +18,7 @@ public class MainPage {
             personalCabinet = $(".b-header-b-personal-e-list-item_cabinet"),
             loginField = $("[autocomplete='code tel email phone phones telephone mail']"),
             loginButton = $("#g-recap-0-btn"),
+            codeField = $("[autocomplete='email mail']"),
             successLogin = $("#auth-success-login"),
             unsuccessLogin = $(".full-input__msg-small.js-msg-small"),
             searchField = $("#search-field"),
@@ -48,7 +50,7 @@ public class MainPage {
     @Step("Check that page {0} opening")
     //todo передать сюда урл как параметр
     public MainPage checkPageIsOpening(String url) {
-        webdriver().shouldHave(url("https://www.labirint.ru" + url));
+        webdriver().shouldHave(url(baseUrl + url));
         return this;
     }
 
@@ -71,6 +73,14 @@ public class MainPage {
         return this;
     }
 
+    @Step("Enter authorization email and code")
+    public MainPage enterAuthorizationEmailAndCode(String email, String code) {
+        loginField.setValue(email);
+        loginButton.click();
+        codeField.setValue(code).pressEnter();
+        return this;
+    }
+
     @Step("Enter authorization code")
     public MainPage enterAuthorizationCode(String code) {
         loginField.setValue(code);
@@ -78,19 +88,19 @@ public class MainPage {
         return this;
     }
 
-    @Step ("Check authorization error message")
+    @Step("Check authorization error message")
     public MainPage checkErrorAuthorizationResult(String expectedErrorMessage) {
         unsuccessLogin.shouldHave(exactText(expectedErrorMessage));
         return this;
     }
 
-    @Step ("Check the massage about successful authorization")
+    @Step("Check the massage about successful authorization")
     public MainPage checkSuccessAuthorizationResult(String expectedMessage) {
         successLogin.shouldHave(text(expectedMessage));
         return this;
     }
 
-    @Step ("Perform search for {0}")
+    @Step("Perform search for {0}")
     public MainPage fillSearchField(String request) {
         searchField.setValue(request);
         searchButton.click();
