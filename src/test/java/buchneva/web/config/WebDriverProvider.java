@@ -19,19 +19,19 @@ public class WebDriverProvider {
                 break;
             }
             case FIREFOX: {
-                Configuration.browser = "FIREFOX";
+                Configuration.browser = "firefox";
                 break;
             }
             case SAFARI: {
-                Configuration.browser = "SAFARI";
+                Configuration.browser = "safari";
                 break;
             }
             case INTERNET_EXPLORER: {
-                Configuration.browser = "INTERNET_EXPLORER";
+                Configuration.browser = "internet_explorer";
                 break;
             }
             case EDGE: {
-                Configuration.browser = "EDGE";
+                Configuration.browser = "edge";
                 break;
             }
             default: {
@@ -43,12 +43,12 @@ public class WebDriverProvider {
         Configuration.browserSize = config.getBrowserSize();
         Configuration.browserVersion = config.getBrowserVersion();
         Configuration.remote = config.getRemoteUrl();
-
-
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("enableVNC", true);
-        capabilities.setCapability("enableVideo", true);
-        Configuration.browserCapabilities = capabilities;
+//
+//
+//        DesiredCapabilities capabilities = new DesiredCapabilities();
+//        capabilities.setCapability("enableVNC", true);
+//        capabilities.setCapability("enableVideo", true);
+//        Configuration.browserCapabilities = capabilities;
     }
 
 
